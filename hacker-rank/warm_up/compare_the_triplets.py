@@ -1,3 +1,46 @@
+# !/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+#
+# Complete the 'compareTriplets' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY a
+#  2. INTEGER_ARRAY b
+#
+
+
+def compareTriplets(a, b):
+    temp = [0, 0]
+    for i in range(3):
+        if a[i] > b[i]:
+            temp[0] = int(temp[0]) + 1
+        elif a[i] < b[i]:
+            temp[1] = int(temp[1]) + 1
+    return temp
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    a = list(map(int, input().rstrip().split()))
+
+    b = list(map(int, input().rstrip().split()))
+
+    result = compareTriplets(a, b)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
 """
 Alice and Bob each created one problem for HackerRank. A reviewer rates the two challenges, awarding points on a scale from 1 to 100 for three categories: problem clarity, originality, and difficulty.
 
@@ -42,45 +85,4 @@ Constraints
 1 ≤ a[i] ≤ 100
 1 ≤ b[i] ≤ 100
 """
-# !/bin/python3
 
-import math
-import os
-import random
-import re
-import sys
-
-
-#
-# Complete the 'compareTriplets' function below.
-#
-# The function is expected to return an INTEGER_ARRAY.
-# The function accepts following parameters:
-#  1. INTEGER_ARRAY a
-#  2. INTEGER_ARRAY b
-#
-
-
-def compareTriplets(a, b):
-    temp = [0, 0]
-    for i in range(3):
-        if a[i] > b[i]:
-            temp[0] = int(temp[0]) + 1
-        elif a[i] < b[i]:
-            temp[1] = int(temp[1]) + 1
-    return temp
-
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    a = list(map(int, input().rstrip().split()))
-
-    b = list(map(int, input().rstrip().split()))
-
-    result = compareTriplets(a, b)
-
-    fptr.write(' '.join(map(str, result)))
-    fptr.write('\n')
-
-    fptr.close()
