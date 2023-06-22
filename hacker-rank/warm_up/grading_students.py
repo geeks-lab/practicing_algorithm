@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'gradingStudents' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY grades as parameter.
+#
+
+def gradingStudents(grades):
+    graded_list = []
+
+    for g in grades:
+        if g < 38 or (g % 5 < 3):
+            graded_list.append(g)
+        else:
+            mod_num = g % 5
+            round_num = (g - mod_num) + 5
+            graded_list.append(round_num)
+            
+
+    return print(graded_list)
+
+if __name__ == '__main__':
+
+    grades_count = int(input().strip())
+
+    grades = []
+
+    for _ in range(grades_count):
+        grades_item = int(input().strip())
+        grades.append(grades_item)
+
+    result = gradingStudents(grades)
+
