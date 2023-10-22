@@ -18,7 +18,7 @@ def hanoi(num, start, end):
 
 N = int(input())
 
-print(2**N -1)
+print(2**N -1) # 이동횟수
 
 if N <= 20:    
     hanoi(N, 1, 3)

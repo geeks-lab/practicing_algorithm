@@ -1,3 +1,5 @@
+#9498 시험 성적
+
 grade = int(input())
 
 if grade in range(90, 101):
