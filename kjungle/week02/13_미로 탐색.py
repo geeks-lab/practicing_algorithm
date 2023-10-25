@@ -10,18 +10,19 @@
 '''
 
 from collections import deque #q.pop 대신 시간복잡도가 낮은 popleft()사용하기 위해
-# dx[0], dy[0] => 오른쪽  [0][1]
-# dx[1], dy[1] => 왼쪽   [0][-1]
-# dx[2], dy[2] => 아래   [1][0]
-# dx[3], dy[3] => 위     [-1][0]
-dx = [0, 0, 1, -1]
-dy = [1, -1, 0, 0]
+# dx[0], dy[0] => 오른쪽 
+# dx[1], dy[1] => 왼쪽 
+# dx[2], dy[2] => 아래
+# dx[3], dy[3] => 위
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, -1, 1]
 
 
 n, m = map(int,input().split())
 
 graph = []
-
+ 
 for i in range(n): # 간선 입력
     graph.append(list(map(int, input())))
 
@@ -33,10 +34,19 @@ def bfs(x, y):
         for i in range(4): # 4 방향 확인
             nx = x + dx[i]
             ny = y + dy[i]
-        # 칸이 미로의 벽에 닿는지
-        if nx < 0 or nx >= N or ny < 0 or ny >= M:
-            continue
-        # 칸이 미로의 벽을 넘어가는지
-        if graph[nx][ny]==0:
-            continue
+            # 칸이 미로의 벽에 닿는지
+            if nx < 0 or nx >= n or ny < 0 or ny >= m: # nx
+                continue
+            # 칸이 미로의 벽을 넘어가는지
+            if graph[nx][ny]==0:
+                continue
+            if graph[nx][ny]==1:
+                graph[nx][ny] = graph[x][y]+1
+                q.append((nx,ny))
+
+    # 마지막 값에서 카운트 값 뽑기
+    return graph[n-1][m-1]
+
+print(bfs(0,0)) 
+
         

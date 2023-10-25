@@ -35,12 +35,12 @@ sys.setrecursionlimit(1000000)
 
 n, m = map(int, input().split())
 
-graph = [[i] for i in range(n+1)] # 여기 틀림
+graph = [[i] for i in range(n+1)] # 여기 틀림 -> 이거 인접리스트 사용 어색해서 그럼
 # print(graph) # 6 5 -> [[0], [1], [2], [3], [4], [5], [6]]
 
 for _ in range(m): # 간선 입력
     x, y = map(int, input().split())
-    graph[x].append(y) # 여기 틀림
+    graph[x].append(y) # 여기 틀림 > 이거 인접리스트 사용 어색해서 그럼
     graph[y].append(x)
   
 # [[0], [1, 2, 5], [2, 1, 5], [3, 4], [4, 3, 6], [5, 2, 1], [6, 4]]
