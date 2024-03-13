@@ -17,13 +17,22 @@ def heapify(arr, n, i):
         arr[i], arr[largest] = arr[largest], arr[i]
         heapify(arr, n, largest)
 
+'''
+힙정렬 알고리즘 의사코드
+HEAPSORT(A)
+1 BUILD-MAX-HEAP(A)
+2 for i = A.length downto 2
+3   exchange A[1] with A[i]
+4   A.heap-size = A.heap-size -1
+5   MAX-HEAPIFY(A, 1)
+''' 
 
 # 힙 정렬 함수
 def heap_sort(arr):
     n = len(arr)
 
     # 최대 힙을 구성
-    for i in range(n // 2 - 1, -1, -1):
+    for i in range(n // 2 - 1, -1, -1): 
         heapify(arr, n, i)
 
     # 힙에서 요소를 하나씩 추출하여 정렬된 리스트에 추가
@@ -35,6 +44,6 @@ def heap_sort(arr):
 
 
 # 힙 정렬 사용 예시
-arr = [12, 11, 13, 5, 6, 7]
+arr = [ 1, 2, 4, 4, 3, 5, 5, 6 ]
 sorted_arr = heap_sort(arr)
 print("정렬된 배열:", sorted_arr)
