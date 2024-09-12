@@ -33,7 +33,7 @@ def solve_sudoku():
                             return True
                         array[i][j] = 0
                         zeroCnt += 1
-                return False
+                return False 
     return True
 
 solve_sudoku()
